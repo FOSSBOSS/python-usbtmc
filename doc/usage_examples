@@ -18,6 +18,10 @@ NOIS
 DC
 USER
 
+Turn output off with:
+device.write("OUTP OFF")
+This just turns off output, does't reset the device.
+
 I had issues with setting my device using:
 device = usbtmc.Instrument("Agilent Technologies", "33220A")
 but 
