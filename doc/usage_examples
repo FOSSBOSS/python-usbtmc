@@ -1,0 +1,30 @@
+Is there an API useage file? I'm not sure, so I'm writing this for my own use:
+device.write("*RST")
+Resets the device. It turns output off, and puts everything in a default.
+set_frequency(freq)
+sets a frequency.
+object.ask("*IDN?")
+Verifies the ID
+
+set wave type:
+set_wave_type(wave_type)
+wave type options:
+Wave types:
+SIN
+SQU
+RAMP
+PULS
+NOIS
+DC
+USER
+
+I had issues with setting my device using:
+device = usbtmc.Instrument("Agilent Technologies", "33220A")
+but 
+device = usbtmc.Instrument(0x0957, 0x0407)
+works. This was taken using lsusb in linux:
+Bus 001 Device 020: ID 0957:0407 Agilent Technologies, Inc. 33220A Waveform Generator
+python does't know what to do with leading zeros, this API has no 
+checks for that, just us the 0x hex specifyer.
+
+
